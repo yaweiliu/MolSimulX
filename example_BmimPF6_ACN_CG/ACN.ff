@@ -1,0 +1,16 @@
+# bmim BF4 (kJ/mol, A, deg)
+
+ATOMS
+#   type  m/uma    q/e    pot   pars
+N4  N4    14.01    -0.398 lj    3.30     0.42
+C5  C5    12.01     0.129 lj    3.40     0.42
+C6  C6    15.04     0.269 lj    3.60     1.59
+
+BONDS
+# i j    pot    re/A      ka/kJmol-1
+N4  C5   cons   1.17      4331.53
+C5  C6   cons   1.46      4331.53
+
+ANGLES
+# i  j  k    pot    th/deg     ka/kjmol-1
+N4  C5  C6   harm   180   1200

@@ -1,0 +1,19 @@
+# created by fftool
+tolerance 2.5
+filetype xyz
+output simbox.xyz
+
+structure homo_wall_pack.xyz
+  number 1
+  inside box -33.8553 -33.8553 -48.5000 33.8553 33.8553 48.5000
+end structure
+
+structure hetero_wall_pack.xyz
+  number 1
+  inside box -33.8553 -33.8553 -48.5000 33.8553 33.8553 48.5000
+end structure
+
+structure spce_pack.xyz
+  number 2000
+  inside box -33.8553 -33.8553 -48.5000 33.8553 33.8553 48.5000
+end structure

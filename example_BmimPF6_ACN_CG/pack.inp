@@ -1,0 +1,19 @@
+# created by fftool
+tolerance 3.0
+filetype xyz
+output simbox.xyz
+
+structure ACN_pack.xyz
+  number 935
+  inside box -21.0000 -21.0000 -21.0000 21.0000 21.0000 21.0000
+end structure
+
+structure c4c1im_pack.xyz
+  number 65
+  inside box -21.0000 -21.0000 -21.0000 21.0000 21.0000 21.0000
+end structure
+
+structure PF6_pack.xyz
+  number 65
+  inside box -21.0000 -21.0000 -21.0000 21.0000 21.0000 21.0000
+end structure

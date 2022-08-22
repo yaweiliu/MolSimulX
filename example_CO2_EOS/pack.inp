@@ -1,0 +1,9 @@
+# created by fftool
+tolerance 2.5
+filetype xyz
+output simbox.xyz
+
+structure co2_pack.xyz
+  number 500
+  inside box -12.5000 -12.5000 -12.5000 12.5000 12.5000 12.5000
+end structure

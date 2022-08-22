@@ -1,0 +1,95 @@
+# created by fftool
+
+# settings
+variable myrand  equal 49303
+variable mytemp  equal 300.0 #K
+variable mypress equal 1.0   #atm.
+
+units real
+boundary p p p
+
+atom_style full
+bond_style harmonic
+angle_style harmonic
+special_bonds lj/coul 0.0 0.0 0.5
+
+# remove hybrid if not necessary
+pair_style lj/cut/coul/long 12.0 12.0
+pair_modify shift yes mix arithmetic
+kspace_style pppm 1.0e-4
+
+read_data data.lmp
+
+
+pair_coeff    1    1      0.100382     3.300000  # N4 N4
+pair_coeff    2    2      0.100382     3.400000  # C5 C5
+pair_coeff    3    3      0.380019     3.600000  # C6 C6
+pair_coeff    4    4      0.086042     3.410000  # C1 C1
+pair_coeff    5    5      0.611855     4.380000  # N2 N2
+pair_coeff    6    6      0.437380     5.040000  # C3 C3
+pair_coeff    7    7      1.125717     5.060000  # PF PF
+
+
+neighbor 2.0 bin
+# neigh_modify delay 0 every 1 check yes
+
+timestep 2.0
+
+# groups
+group ACN          type  1 2 3
+group cation       type  4 5 6
+group anion        type  7
+group fluid        type  1:7
+
+minimize 1.0e-4 1.0e-6 100 1000
+reset_timestep 0
+
+# variables 
+variable step equal step
+variable time equal time
+variable lx   equal lx
+variable ly   equal ly
+variable lz   equal lz
+
+variable temp equal temp
+variable pxx  equal pxx
+variable pyy  equal pyy
+variable pzz  equal pzz
+
+variable atoms equal atoms
+
+variable density equal density
+
+variable Na      equal 6.022e23
+variable IL_con  equal count(anion)/${Na}/lx/ly/lz*1e27
+variable ACN_con equal count(ACN)/3/${Na}/lx/ly/lz*1e27
+
+# computes
+compute  fluid_temp fluid temp
+variable fluid_temp equal c_fluid_temp
+
+fix myshake   all  shake 0.0001 20 0 b 1 2 3 4 a 2
+
+thermo_style custom step atoms c_fluid_temp press lx ly lz density v_IL_con v_ACN_con
+thermo_modify flush yes
+thermo 1000
+
+#eq
+velocity fluid create ${mytemp} ${myrand} mom yes rot yes
+
+write_data result_atoms.data nofix
+dump myatom all atom 10000 result_atoms.lammpstrj
+
+
+fix log all print 1000 "${step} ${time} ${fluid_temp} ${atoms} ${pxx} ${pyy} ${pzz} ${lx} ${ly} ${lz} ${density} ${IL_con} ${ACN_con}" title "step time temp atoms pxx pyy pzz lx ly lz density IL_con ACN_con" file result_thermo.log screen no
+
+fix mynpt     fluid npt temp ${mytemp} ${mytemp} 200 iso ${mypress} ${mypress} 2000
+fix_modify    mynpt temp fluid_temp
+
+run 10000000
+
+
+
+
+
+

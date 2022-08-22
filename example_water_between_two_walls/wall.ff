@@ -1,0 +1,5 @@
+ATOMS
+# name    name    mass     charge    lj    sigma(A)      epsilon(kJ/mol)
+Cw   Cw    28.0855   0.0  lj  2.63  19.062304
+Siw  Siw   28.0855   0.0  lj  2.63  19.062304
+Ptw  Ptw   28.0855   0.0  lj  2.63  19.062304

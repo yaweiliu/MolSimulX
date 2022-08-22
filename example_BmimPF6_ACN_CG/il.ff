@@ -1,0 +1,17 @@
+# bmim BF4 (kJ/mol, A, deg)
+
+ATOMS
+#   type  m/uma    q/e    pot   pars
+C1  C1    15.04    0.1578 lj    3.41     0.36
+N2  N2    67.07    0.4374 lj    4.38     2.56
+C3  C3    57.12    0.1848 lj    5.04     1.83
+PF  PF   144.96    -0.78  lj    5.06     4.71    
+
+BONDS
+# i j    pot    re/A      ka/kJmol-1
+C1  N2   cons   2.70760   4331.53
+N2  C3   cons   3.82130   4331.53
+
+ANGLES
+# i  j  k    pot    th/deg     ka/kjmol-1
+C1  N2  C3   cons   116.0333   317.57
