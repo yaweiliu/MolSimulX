@@ -17,7 +17,7 @@ Any comments, suggestions, and questions? Open an [issue](https://gitee.com/yliu
 * Maintainers: 
   * Dr. Yawei Liu (ywliu@ipe.ac.cn)
 
-This project is aiming to integrate tools/scripts used in our all-atom molecular dynamics (MD) simulations of matters. The corresponding tutorials and examples will also be given here.
+This project is aiming to integrate tools/scripts used in our molecular simulations of matters. The corresponding tutorials and examples will also be given here.
 
 <img title="MolSimulX" alt="MolSimulX" src="./images/MolSimulX.png">
 <img title="MolSimulX" alt="MolSimulX" src="./images/framework.png">
