@@ -16,7 +16,7 @@
 
 * 开始日期: 2021/11/24
 * 管理员: 
-  * [刘亚伟](https://people.ucas.edu.cn/~yaweiliu) (ywliu@ipe.ac.cn 2021--)
+  * [刘亚伟](https://yaweiliu.github.io/) (ywliu@ipe.ac.cn 2021--)
 * 开发者:
   * 李雪夫 (lixuefu2021@ipe.ac.cn 2022--)
   * 徐舒婷 (xushuting2021@ipe.ac.cn 2022--)
