@@ -39,79 +39,79 @@ This project is aiming to integrate tools/scripts used in our molecular simulati
 ### Install software/packages
 
 * before installation
-  * most software/pakcages are installed via ```code command``` in **Terminal**
+  * most software/pakcages are installed via `code command` in **Terminal**
     * In Mac Os, see [here](https://support.apple.com/guide/terminal/welcome/mac) for Mac Terminal
     * In Ubuntu OS, see [here](https://www.ubuntubeginner.com/ubuntu-terminal-basics/) for Ubuntu Terminal
     * In WSL Ubuntu, you can launch WSL Ubuntu in vscode, and then open a Ubuntu Terminal from the menu bar
 
   * bash profile
     * a bash profile is a file used to store environment settings for your terminal, and it is 
-      * for ```bash shell```
-        *  ```~/.bash_profile``` in Mac and ```~/.bashrc``` in Ubuntu (```~``` represents the user’s home directory)
-      * for ```zsh shell``` ([oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) for ```zsh``` is highly recommanded)
-        * ```~/.zshrc``` in both Mac and Ubuntu
+      * for `bash shell`
+        *  `~/.bash_profile` in Mac and `~/.bashrc` in Ubuntu (`~` represents the user’s home directory)
+      * for `zsh shell` ([oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) for `zsh` is highly recommanded)
+        * `~/.zshrc` in both Mac and Ubuntu
     * for the changes in the profile file to be applied, run the source command with the file as an argument
-        * ```source ~/.bash_profile``` or 
-        * ```source ~/.bashrc``` or 
-        * ```source ~/.zshrc```
+        * `source ~/.bash_profile` or 
+        * `source ~/.bashrc` or 
+        * `source ~/.zshrc`
 
 * install compiler
   * gcc/g++
-    * ```brew install gcc``` # for Mac
-    * ```sudo apt install build-essential``` # for Ubuntu
-    * test ```gcc --version```
+    * `brew install gcc` # for Mac
+    * `sudo apt install build-essential` # for Ubuntu
+    * test `gcc --version`
   * make
-    * ```brew install make``` # for Mac
-    * ```sudo apt install make``` # for Ununtu
-    * test ```make --version```
+    * `brew install make` # for Mac
+    * `sudo apt install make` # for Ununtu
+    * test `make --version`
   * cmake
-    * ```brew install cmake``` # for Mac
-    * ```sudo apt install cmake``` # for Ununtu
-    * test ```make --version```
+    * `brew install cmake` # for Mac
+    * `sudo apt install cmake` # for Ununtu
+    * test `make --version`
 
 * [git](https://git-scm.com/)
   * install git, see [here](https://git-scm.com/downloads) for details
-    * ```brew install git``` # for mac
-    * ```sudo apt-get install git``` # for Ubuntu
+    * `brew install git` # for mac
+    * `sudo apt-get install git` # for Ubuntu
   * see [use_git.md](./use_git.md) for basic usage of git
   * see [here](https://git-scm.com/book/en/v2) for more details of git
 
 
 * [MolSimulX](https://gitee.com/yliu3803/MolSimulX)
   * obtain MolSimulX
-    * ```cd some_folder```
-    * ```git clone https://gitee.com/yliu3803/MolSimulX.git```
+    * `cd some_folder`
+    * `git clone https://gitee.com/yliu3803/MolSimulX.git`
   * update MolSimulX
-    * ```cd MolSimulX```
-    * ```git pull```
+    * `cd MolSimulX`
+    * `git pull`
 
 * [python](https://www.python.org/) and python packages
   * install [miniconda](https://docs.conda.io/en/latest/miniconda.html) (recommended for limited storage space) or [anaconda](https://www.anaconda.com/) (most python packages are already included)
   
-  * install pyhton packages including via ```conda```
+  * install pyhton packages including via `conda`
 
-    ```conda install numpy pandas scipy matplotlib```
+    `conda install numpy pandas scipy matplotlib`
 
-    ```conda install nodejs```
+    `conda install nodejs`
     
-    ```conda install -c conda-forge MDanalysis MDAnalysisTests nglview```
+    `conda install -c conda-forge MDanalysis MDAnalysisTests nglview`
 
-    ```conda install -c conda-forge freud fresnel```
+    `conda install -c conda-forge freud fresnel`
 
-    ```pip install plato-draw```
+    `pip install plato-draw`
 
-    ```pip install wulffpack```
+    `pip install wulffpack`
 
-    ```pip install ase```
+    `pip install ase`
 
-    Tip：Packages can be install via ```pip``` or ```conda```, see details in corresponding official documents.
+    Tip：Packages can be install via `pip` or `conda`, see details in corresponding official documents.
 
   
 * [fftool](https://github.com/paduagroup/fftool)
   * also can be found in [ilmdtoolkit/preprocess](./preprocess) folder
 
   * add fftool to the PATH environment variable
-    * in bash profile, add```export PATH=path_to_fftool:$PATH```
+    * in bash profile, add`export PATH=path_to_fftool:$PATH`
   
   * see [use_fftool.md](./use_fftool.md) for basic usage of fftool
   
@@ -120,13 +120,13 @@ This project is aiming to integrate tools/scripts used in our molecular simulati
 
   * expand the files and compile the package
 
-    * ```tar zxvf packmol.tar.gz```
-    * ```cd packmol```
-    * ```make```
+    * `tar zxvf packmol.tar.gz`
+    * `cd packmol`
+    * `make`
   
   * add packmol to the PATH environment variable
 
-    * in bash profile, add ```export PATH=path_to_packmol:$PATH```
+    * in bash profile, add `export PATH=path_to_packmol:$PATH`
 
 * [lammps](https://www.lammps.org/)
   * see [use_lammps.md](./use_lammps.md) for how to compile your own lammps
@@ -140,7 +140,7 @@ This project is aiming to integrate tools/scripts used in our molecular simulati
 <img title="jupyterlab" alt="jupyterlab" src="./images/jupyterlab.gif"> 
 
 * install jupyterlab
-  * ```conda install jupyterlab```
+  * `conda install jupyterlab`
   
 * see [use_jupyerlab.ipynb](./use_jupyerlab.ipynb) for basic usage of python and packages in jupyterlab
 
@@ -173,7 +173,7 @@ This project is aiming to integrate tools/scripts used in our molecular simulati
 
 ### [postprocess](./postprocess) # 后处理
     
-  This folder contains some python scripts to analyse/visulise the simulation data (depends on ```numpy```, ```pandas```, ```scipy```, etc. python packages) and to generate the final report (depends on ```markdown```, ```latex```).
+  This folder contains some python scripts to analyse/visulise the simulation data (depends on `numpy`, `pandas`, `scipy`, etc. python packages) and to generate the final report (depends on `markdown`, `latex`).
     
   * [PyLAT](./postprocess/PyLAT) has source codes of [PyLAT](https://github.com/MaginnGroup/PyLAT)
 
@@ -197,18 +197,22 @@ This project is aiming to integrate tools/scripts used in our molecular simulati
 
   * [example_co2_eos](./example_co2_eos): MD simulaitons to calculate the equation of state of CO$_2$, see details in [co2_eos.ipynb](./example_co2_eos/co2_eos.ipynb)
 
-    ```python``` ```jupyterlab``` ```fftool``` ```packmol``` ```lammps``` ```mdanalysis``` ```nglview```
+    `python` `jupyterlab` `fftool` `packmol` `lammps` `mdanalysis` `nglview`
   *  [example_BmimPF6_ACN_CG](./example_BmimPF6_ACN_CG) Coarse-grained MD simulations of BmimPF6-ACN mixtures，see details in [BmimPF6_ACN_mixture.ipynb](./example_BmimPF6_ACN_CG/BmimPF6_ACN_mixture.ipynb)
   
-      ```python``` ```jupyterlab``` ```fftool``` ```packmol``` ```lammps``` ```mdanalysis``` ```nglview```
+      `python` `jupyterlab` `fftool` `packmol` `lammps` `mdanalysis` `nglview`
 
   *  [example_Wulff_Ru_cluster](./example_Wulff_Ru_cluster) build Wulff cluster of Ru *hcp* crystal，see details in [wulff_Ru.ipynb](./example_Wulff_Ru_cluster/wulff_Ru.ipynb)
   
-      ```python``` ```jupyterlab``` ```ase``` ```wulffpack``` ```nglview```
+      `python` `jupyterlab` `ase` `wulffpack` `nglview`
 
- *  [example_water_between_two_walls](./example_water_between_two_walls) build a configuration with water molecules between two different substrates, and create ```lammps``` input files，see details in [water_between_two_walls.ipynb](./example_water_between_two_walls/water_between_walls.ipynb)
+ *  [example_water_between_two_walls](./example_water_between_two_walls) build a configuration with water molecules between two different substrates, and create `lammps` input files，see details in [water_between_two_walls.ipynb](./example_water_between_two_walls/water_between_walls.ipynb)
   
-      ```python``` ```jupyterlab``` ```ase``` ```fftool``` ```packmol``` ```nglview``` 
+      `python` `jupyterlab` `ase` `fftool` `packmol` `nglview` 
+
+ *  [example_il_com_orientation](./example_il_com_orientation) compute the center-of-mass and orientation vector of cations in a ionic liquidsee details in [il_com_orientation.ipynb](./example_il_com_orientation/il_com_orientation.ipynb)
+  
+      `python` `jupyterlab`  `pandas` `mdanalysis` `nglview`
 
 * project_
   
@@ -217,15 +221,16 @@ This project is aiming to integrate tools/scripts used in our molecular simulati
 
 ## Publications
 ### 2022
+* Charged Nanochannels in Covalent Organic Framework Membranes Enabling Efficient Ion Exclusion. [ACS Nano 2022, 16 (8), 11781.](https://doi.org/10.1021/acsnano.2c04767)
 * A General Method for Direct Assembly of Single Nanocrystals. [Adv. Opt. Mater. 2022, 10 (14), 2200179.](https://doi.org/10.1002/adom.202200179)
 * Confined Assembly of Colloidal Nanorod Superstructures by Locally Controlling Free‐Volume Entropy in Nonequilibrium Fluids. [Adv. Mater. 2022, 34 (28), 2202119.](https://doi.org/10.1002/adma.202202119)
-* Ultrafast Seawater Desalination with Covalent Organic Framework Membranes. [Nat. Sustain. 2022, 5 (6), 518–526.](https://doi.org/10.1038/s41893-022-00870-3)
-* Nanoscale Faceting and Ligand Shell Structure Dominate the Self‐Assembly of Nonpolar Nanoparticles into Superlattices. [Adv. Mater. 2022, 34 (20), 2109093.](https://doi.org/10.1002/adma.202109093)
+* Ultrafast Seawater Desalination with Covalent Organic Framework Membranes. [Nat. Sustain. 2022, 5 (6), 518.](https://doi.org/10.1038/s41893-022-00870-3) [**[Cover Artical](https://www.nature.com/natsustain/volumes/5/issues/6)**]
+* Nanoscale Faceting and Ligand Shell Structure Dominate the Self‐Assembly of Nonpolar Nanoparticles into Superlattices. [Adv. Mater. 2022, 34 (20), 2109093.](https://doi.org/10.1002/adma.202109093) [**picked up by chemeurope.com, etc.**]
 * Charged Nanochannels Endow COF Membrane with Weakly Concentration-Dependent Methanol Permeability. [J. Memb. Sci. 2022, 645, 120186.](https://doi.org/10.1016/j.memsci.2021.120186)
 
 ### 2011-2021 (part)
-* A Dissipative Particle Dynamics Model for Studying Dynamic Phenomena in Colloidal Rod Suspensions. [J. Chem. Phys. 2021, 154 (10), 104120.]( https://doi.org/10.1063/5.0041285) [**JCP Editor's Pick**]
-* Direct Assembly of Vertically Oriented, Gold Nanorod Arrays. [Adv. Funct. Mater. 2021, 31 (6), 2006753.](https://doi.org/10.1002/adfm.202006753) 
+* A Dissipative Particle Dynamics Model for Studying Dynamic Phenomena in Colloidal Rod Suspensions. [J. Chem. Phys. 2021, 154 (10), 104120.]( https://doi.org/10.1063/5.0041285) [**Editor's Pick**]
+* Direct Assembly of Vertically Oriented, Gold Nanorod Arrays. [Adv. Funct. Mater. 2021, 31 (6), 2006753.](https://doi.org/10.1002/adfm.202006753) [**picked up by eurekalert, phys.org, etc.**]
 * Hamiltonian Transformation to Compute Thermo-Osmotic Forces. [Phys. Rev. Lett. 2018, 121 (6), 068002.]( https://doi.org/10.1103/PhysRevLett.121.068002)
 * Molecular Simulation of Thermo-Osmotic Slip. [Phys. Rev. Lett. 2017, 119 (3), 038002.](https://doi.org/10.1103/PhysRevLett.119.038002)
 * Microscopic Marangoni Flows Cannot Be Predicted on the Basis of Pressure Gradients. [Phys. Rev. Lett. 2017, 119 (22), 224502.](https://doi.org/10.1103/PhysRevLett.119.224502)

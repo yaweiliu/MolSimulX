@@ -1,0 +1,25 @@
+#Accurate simulation of surfaces and interfaces of ten FCC metals and steel using Lennard–Jones potentials
+#   10.1038/s41524-020-00478-1
+#Accurate Simulation of Surfaces and Interfaces of Face-Centered Cubic Metals Using 12-6 and 9-6 Lennard-Jones Potentials
+#   10.1021/jp801931d
+
+ATOMS
+# type  m/amu   q/e     pot  pars/kJmol-1
+Ac  Ac   227.00  0  lj   3.843  27.251  #Ac
+Ca  Ca   40.078  0  lj   4.025  14.065  #Ca(α)
+Ce  Ce   140.12  0  lj   3.734  26.707  #Ce(γ)
+Es  Es   252.00  0  lj   4.133  12.056  #Es(β)
+Ir  Ir   192.22  0  lj   2.785  38.511  
+Fe  Fe   55.845  0  lj   2.590  25.116  #Fe(γ)c
+Rh  Rh   102.91  0  lj   2.757  32.818  
+Sr  Sr   87.62   0  lj   4.379  14.232  #Sr(α) 
+Th  Th   232.04  0  lj   3.683  35.455  #Th(α)
+Yb  Yb   173.05  0  lj   3.942  11.344  #Yb(β)
+Ag  Ag   107.87  0  lj   3.317  19.088     
+Al  Al   26.982  0  lj   3.283  16.828  
+Au  Au   196.97  0  lj   3.312  22.144
+Cu  Cu   63.546  0  lj   2.936  19.758  
+Ni  Ni   58.693  0  lj   2.865  23.651
+Pb  Pb   207.2   0  lj   4.002  12.265    
+Pd  Pd   106.42  0  lj   3.164  25.744
+Pt  Pt   195.08  0  lj   3.193  32.651

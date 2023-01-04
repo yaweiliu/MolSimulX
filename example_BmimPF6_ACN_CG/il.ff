@@ -1,4 +1,4 @@
-# bmim BF4 (kJ/mol, A, deg)
+# bmim PF6 (kJ/mol, A, deg)
 
 ATOMS
 #   type  m/uma    q/e    pot   pars
@@ -14,4 +14,4 @@ N2  C3   cons   3.82130   4331.53
 
 ANGLES
 # i  j  k    pot    th/deg     ka/kjmol-1
-C1  N2  C3   cons   116.0333   317.57
+C1  N2  C3   cons   142   317.57

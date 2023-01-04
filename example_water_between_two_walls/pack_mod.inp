@@ -3,16 +3,16 @@ filetype xyz
 output simbox.xyz
 seed -1
 
-structure hetero_wall_pack.xyz
-   number 1
-   center
-   fixed 0.000000 0.000000 -43.750000 0 0 0
-end structure
-
 structure homo_wall_pack.xyz
    number 1
    center
    fixed 0.000000 0.000000 43.750000 0 0 0
+end structure
+
+structure hetero_wall_pack.xyz
+   number 1
+   center
+   fixed 0.000000 0.000000 -43.750000 0 0 0
 end structure
 
 structure spce_pack.xyz

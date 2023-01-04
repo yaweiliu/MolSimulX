@@ -1,0 +1,14 @@
+#Determination of Alkali and Halide Monovalent Ion Parameters for Use in Explicitly Solvated Biomolecular Simulations
+#   10.1021/jp8001614
+
+ATOMS
+# type  m/amu   q/e     pot  pars/kJmol-1
+Li  Li  6.9412     1  lj   1.409401  1.409570198
+Na  Na  22.990     1  lj   2.159538  1.476158575
+K   K   39.098     1  lj   2.838403  1.798746804
+Rb  Rb  85.468     1  lj   3.094982  1.86320367
+Cs  Cs  132.91     1  lj   3.601012  0.376139309
+F   F   18.998    -1  lj   4.021516  0.030978493
+Cl  Cl  35.453    -1  lj   4.830453  0.05351801
+Br  Br  79.904    -1  lj   4.901724  0.1128487
+I   I   126.904   -1  lj   5.201066  0.179095917

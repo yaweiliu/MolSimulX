@@ -1,0 +1,13 @@
+TITLE     MDANALYSIS FRAME 0: Created by PDBWriter
+CRYST1   46.409   46.409   46.409  90.00  90.00  90.00 P 1           1
+ATOM      1  X   anioX 301      17.968  32.731  13.691  1.00  0.00      SYST B
+ATOM      2  X   anioX 301      18.430  33.636  14.660  1.00  0.00      SYST F
+ATOM      3  X   anioX 301      18.914  32.318  12.724  1.00  0.00      SYST F
+ATOM      4  X   anioX 301      17.506  31.553  14.213  1.00  0.00      SYST F
+ATOM      5  X   anioX 301      16.816  33.321  13.082  1.00  0.00      SYST F
+CONECT    1    2    3    4    5
+CONECT    2    1
+CONECT    3    1
+CONECT    4    1
+CONECT    5    1
+END

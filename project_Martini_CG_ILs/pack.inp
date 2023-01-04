@@ -1,0 +1,14 @@
+# created by fftool
+tolerance 2.5
+filetype xyz
+output simbox.xyz
+
+structure c8c1im_CG_pack.xyz
+  number 300
+  inside box -25.0000 -25.0000 -25.0000 25.0000 25.0000 25.0000
+end structure
+
+structure BF4_CG_pack.xyz
+  number 300
+  inside box -25.0000 -25.0000 -25.0000 25.0000 25.0000 25.0000
+end structure

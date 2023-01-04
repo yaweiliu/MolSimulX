@@ -1,0 +1,65 @@
+# created by fftool
+
+units real
+boundary p p p
+
+atom_style full
+bond_style harmonic
+angle_style harmonic
+dihedral_style opls
+
+special_bonds lj/coul 0.0 0.0 0.5
+
+pair_style lj/cut/coul/long 12.0 12.0
+pair_modify mix geometric shift yes
+kspace_style pppm 1.0e-4
+
+read_data data.lmp
+# read_restart restart1.lmp
+
+pair_coeff    1    1     0.000000     0.000000  # TN2q TN2q
+pair_coeff    2    2     0.000000     0.000000  # TC6 TC6
+pair_coeff    3    3     0.000000     0.000000  # TN2qx TN2qx
+pair_coeff    4    4     0.000000     0.000000  # SC3 SC3
+pair_coeff    5    5     0.000000     0.000000  # C1 C1
+pair_coeff    6    6     0.000000     0.000000  # Q2 Q2
+
+# minimize 1.0e-4 1.0e-6 100 1000
+# reset_timestep 0
+
+neighbor 2.0 bin
+# neigh_modify delay 0 every 1 check yes
+
+timestep 1.0
+
+variable TK equal 300.0
+variable PBAR equal 1.0
+
+velocity all create ${TK} 12345
+
+fix TPSTAT all npt temp ${TK} ${TK} 100 iso ${PBAR} ${PBAR} 1000
+
+thermo_style custom step cpu etotal ke pe evdwl ecoul elong temp press vol density
+thermo 1000
+
+dump TRAJ all custom 1000 dump.lammpstrj id mol type element q xu yu zu
+dump_modify TRAJ element TN2q TC6 TN2qx S C Q2
+
+variable vinst equal vol
+fix VAVG all ave/time 10 1000 50000 v_vinst
+
+# restart 10000 restart1.lmp restart2.lmp
+
+run 50000
+
+variable lscale equal (f_VAVG/v_vinst)^(1.0/3.0)
+print "scaling coordinates by ${lscale}"
+change_box all x scale ${lscale} y scale ${lscale} z scale ${lscale} remap
+
+unfix VAVG
+unfix TPSTAT
+fix TSTAT all nvt temp ${TK} ${TK} 100
+
+run 10000
+
+write_data data.eq.lmp

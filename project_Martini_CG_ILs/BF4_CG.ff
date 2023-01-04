@@ -1,0 +1,17 @@
+# non-bond potential: lj 
+# bond and angle potential: k/2(x-x0)^2 
+# dihedral potential: opls 
+
+ATOMS
+# name    name     mass           charge     pot  sigma(A)   epsilon(kJ/mol)
+    Q2      Q2     86.803000     -0.800000   lj   0.00   0.00
+
+BONDS
+# name    name    pot       x0(A)         k(kJ/mol/A-2)
+
+ANGLES
+# name    name    name    pot     x0(deg)        k(kJ/mol/rad-2)
+
+DIHEDRALS
+# name    name    name    name    pot      k1(KJ/mol)     k2(KJ/mol)     k3(KJ/mol)     k4(KJ/mol)
+

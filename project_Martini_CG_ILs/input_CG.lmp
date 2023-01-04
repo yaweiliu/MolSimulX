@@ -1,0 +1,80 @@
+# created by fftool
+
+# settings
+variable myrand  equal 49303
+variable mytemp  equal 300.0 #K
+variable mypress equal 1.0   #atm.
+variable timestep equal 5.0
+variable Tdamp    equal ${timestep}*100
+variable Pdamp    equal ${timestep}*1000
+
+units real
+boundary p p p
+
+atom_style full
+bond_style harmonic
+angle_style harmonic
+dihedral_style opls
+
+special_bonds lj/coul 0.0 0.0 0.0
+
+# remove hybrid if not necessary
+pair_style lj/cut/coul/long 12.0 12.0
+pair_modify shift yes
+kspace_style pppm 1.0e-4
+
+read_data data_CG.lmp
+include pair_CG.lmp
+dielectric 15.0
+
+neighbor 2.0 bin
+#neigh_modify delay 0 every 1 check yes
+
+minimize 0.0 1.0e-8 1000 100000
+reset_timestep 0
+
+timestep ${timestep}
+
+# variables 
+variable step equal step
+variable time equal time
+variable lx   equal lx
+variable ly   equal ly
+variable lz   equal lz
+
+variable temp equal temp
+variable pxx  equal pxx
+variable pyy  equal pyy
+variable pzz  equal pzz
+
+variable atoms equal atoms
+
+thermo_style custom step atoms temp press lx ly lz
+thermo_modify flush yes
+thermo 1000
+
+# eq
+velocity all create ${mytemp} ${myrand} mom yes rot yes
+
+fix mynpt all npt temp ${mytemp} ${mytemp} ${Tdamp} iso ${mypress} ${mypress} ${Pdamp}
+
+write_data result_atoms.data nofix
+dump myatom all atom 10000 result_atoms.lammpstrj
+
+run 2000000
+
+velocity all zero linear
+velocity all zero angular
+undump myatom
+
+write_data data.eq.lmp nofix
+
+# produce
+dump myatom all atom 10000 result_atoms.lammpstrj
+fix log all print 1000 "${step} ${time} ${temp} ${atoms} ${pxx} ${pyy} ${pzz} ${lx} ${ly} ${lz}" title "step time temp atoms pxx pyy pzz lx ly lz" file result_thermo.log screen no
+
+run 2000000
+
+
+
+

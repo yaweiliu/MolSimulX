@@ -1,0 +1,36 @@
+# non-bond potential: lj 
+# bond and angle potential: k/2(x-x0)^2 
+# dihedral potential: opls 
+
+ATOMS
+# name    name     mass           charge     pot  sigma(A)   epsilon(kJ/mol)
+  TN2q    TN2q     29.042000      0.296000   lj   0.00   0.00
+   TC6     TC6     26.038000      0.128000   lj   0.00   0.00
+ TN2qx   TN2qx     41.053000      0.272000   lj   0.00   0.00
+   SC3     SC3     42.081000      0.104000   lj   0.00   0.00
+    C1      C1     57.116000      0.000000   lj   0.00   0.00
+
+BONDS
+# name    name    pot       x0(A)         k(kJ/mol/A-2)
+    C1     SC3    harm      4.495988       40
+   SC3   TN2qx    harm      3.273367       28
+ TN2qx     TC6    harm      2.887636      221
+ TN2qx    TN2q    harm      3.943985      559
+   TC6    TN2q    harm      3.245051      933
+
+ANGLES
+# name    name    name    pot     x0(deg)        k(kJ/mol/rad-2)
+    C1     SC3   TN2qx    harm    145.565511       31
+   SC3   TN2qx     TC6    harm    109.749078       13
+   SC3   TN2qx    TN2q    harm    128.192856       38
+ TN2qx     TC6    TN2q    harm     79.857827     1076
+ TN2qx    TN2q     TC6    harm     46.105539     1485
+   TC6   TN2qx    TN2q    harm     54.036635     5469
+
+DIHEDRALS
+# name    name    name    name    pot      k1(KJ/mol)     k2(KJ/mol)     k3(KJ/mol)     k4(KJ/mol)
+    C1     SC3   TN2qx     TC6    opls      0.074302      -0.257952       0.068078       0.904489
+    C1     SC3   TN2qx    TN2q    opls     -1.375278       0.459973       1.119378      -1.192906
+   SC3   TN2qx     TC6    TN2q    opls     11.947788      -4.046313      -2.514473      -0.576963
+   SC3   TN2qx    TN2q     TC6    opls     -0.988474      -3.152362       2.002179      -0.357967
+

@@ -16,14 +16,14 @@
   
 * open an administrator PowerShell or Windows Command Prompt 
 
-* type ```wsl --install``` (ubuntu will be installed as a default Linux distribution)
+* type `wsl --install` (ubuntu will be installed as a default Linux distribution)
 
 * restart your machine
 
 ## Set up your Linux user info
 
 * open the distribution (i.e., Ubuntu by default) from the Start menu
-* create a User Name and Password for your Linux distribution by following the following the the instructions
+* create a `<User Name>` and `<Password>`for your Linux distribution by following the following the the instructions
 
 ## Install vscode and Remote wsl extension
 
@@ -34,8 +34,8 @@
 ## Launch WSL Ubuntu in vscode
 
 * open vscode
-* ```CTRL+SHIFT+P``` to bring up the command palette
-* type ```Remote-WSL``` and select one to launch WSL Ubuntu
+* `CTRL+SHIFT+P` to bring up the command palette
+* type `Remote-WSL` and select one to launch WSL Ubuntu
   
 <img title="launch_wsl_in_vscode" alt="launch_wsl_in_vscode" src="./images/launch_wsl_vscode.png">
 

@@ -1,0 +1,21 @@
+# bond and angle force constants are in the form k/2 (x - x0)^2 
+
+ATOMS
+# name    name    mass     charge    lj    sigma(A)      epsilon(kJ/mol)
+    Al		Al    26.982	 0.720   lj     4.050          0.419
+   ClM     ClM    35.450    -0.220   lj     3.770          0.620
+   ClA	   ClA    35.450	-0.370   lj     3.770          0.620
+   
+BONDS
+# name    name    harm    x0(A)   k(kJ/mol/A-2)
+    Al     ClM    harm     2.1771     527.41
+    Al     ClA    harm     2.1771     527.41
+
+ANGLES
+# name    name    name   harm    x0(deg)   k(kJ/mol/A-2)
+   ClA      Al    ClM     harm    109.47      53.578
+   ClA      Al    ClA     harm    109.47      53.578
+
+
+
+

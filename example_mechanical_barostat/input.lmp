@@ -1,0 +1,113 @@
+# created by fftool
+
+# settings
+variable myrand  equal 49303
+variable mytemp  equal 300.0 #K
+variable mypress equal 1.0   #atm.
+
+units real
+boundary p p p
+
+atom_style full
+bond_style harmonic
+angle_style harmonic
+special_bonds lj/coul 0.0 0.0 0.5
+
+# remove hybrid if not necessary
+pair_style hybrid lj/cut/coul/long 12.0 12.0
+pair_modify mix geometric tail yes
+kspace_style pppm 1.0e-4
+
+read_data data.lmp
+
+# change box size
+change_box all z delta 0 50 units box
+
+
+# remove pair style if not using hybrid
+pair_coeff    1    1 lj/cut/coul/long     4.556000     2.630000  # Cw Cw
+pair_coeff    2    2 lj/cut/coul/long     4.556000     2.630000  # Siw Siw
+pair_coeff    3    3 lj/cut/coul/long     4.556000     2.630000  # Ptw Ptw
+pair_coeff    4    4 lj/cut/coul/long     0.000000     0.000000  # Hw Hw
+pair_coeff    5    5 lj/cut/coul/long     0.155425     3.165500  # Ow Ow
+
+neighbor 2.0 bin
+# neigh_modify delay 0 every 1 check yes
+
+timestep 1.0
+
+# groups
+group upper        type  1        
+group lower        type  2 3
+group wall         type  1 2 3
+group fluid        type  4 5
+
+fix freeze wall setforce 0 0 0
+minimize 1.0e-4 1.0e-6 100 1000
+#minimize 0.0 1.0e-8 1000 100000
+unfix freeze
+reset_timestep 0
+
+# variables 
+variable step equal step
+variable time equal time
+variable lx   equal lx
+variable ly   equal ly
+variable lz   equal lz
+
+variable temp equal temp
+variable pxx  equal pxx
+variable pyy  equal pyy
+variable pzz  equal pzz
+
+variable atoms equal atoms
+variable upper_cmz equal xcm(upper,z)
+
+# computes
+compute  fluid_temp fluid temp
+variable fluid_temp equal c_fluid_temp
+
+fix myshake   all shake 0.0001 20 0 b 1
+
+
+# control pressure
+################################################################################
+velocity        upper set 0 0 0 units box
+variable        atm2Pa equal 101325.0
+variable        A2m equal 1.0e-10
+variable        Na equal 6.022e23
+variable        convert equal ${atm2Pa}*${A2m}*${A2m}*${A2m}*${Na}/4.184/1000
+variable        force equal  -${mypress}*${convert}*lx*ly/count(upper)
+fix             aveforce upper  aveforce 0 0 ${force}
+fix             setforce upper  setforce 0 0 NULL
+fix             upper_nve upper nve
+################################################################################
+
+fix mynvt  fluid nvt temp ${mytemp} ${mytemp} 1000
+fix_modify mynvt temp fluid_temp
+
+thermo_style custom step atoms c_fluid_temp press lx ly lz v_upper_cmz
+thermo_modify flush yes
+thermo 1000
+
+#eq
+velocity fluid create ${mytemp} ${myrand} mom yes rot yes
+
+write_data result_atoms.data nofix
+dump myatom all atom 10000 result_atoms.lammpstrj
+
+
+fix log all print 1000 "${step} ${time} ${fluid_temp} ${atoms} ${pxx} ${pyy} ${pzz} ${lx} ${ly} ${lz} ${upper_cmz} " title "step time temp atoms pxx pyy pzz lx ly lz upper_cmz" file result_thermo.log screen no
+
+# compute local stress
+compute mystress all stress/atom NULL
+compute mybins  all chunk/atom bin/1d z center 0.1 units box discard yes
+fix     stress_profile   all ave/chunk 1000 100 100000 mybins c_mystress[1] c_mystress[2] c_mystress[3] density/number norm all ave running overwrite file result_profile_stress.log
+
+run 10000000
+
+
+
+
+
+
