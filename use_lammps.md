@@ -47,6 +47,7 @@
   * if use MKL: `cmake -C ../cmake/presets/most.cmake -D BUILD_SHARED_LIBS=on -D LAMMPS_EXCEPTIONS=on -D PKG_PYTHON=on -D FFT=MKL -D FFT_SINGLE=no -DCMAKE_INSTALL_PREFIX=$HOME/usr/lammps ../cmake`
   * `cmake --build .`
   * `cmake --install .`
+  * `make install-python`
   * add lammps to the PATH environment variable (e.g. in `.bashrc`)
     * `export LD_LIBRARY_PATH=$HOME/usr/lammps/lib:$LD_LIBRARY_PATH` or/and
     * `export LD_LIBRARY_PATH=$HOME/usr/lammps/lib64:$LD_LIBRARY_PATH`
@@ -66,6 +67,7 @@
   * if use MKL: `cmake -C ../cmake/presets/most.cmake -D BUILD_SHARED_LIBS=on -D LAMMPS_EXCEPTIONS=on -D PKG_PYTHON=on -D FFT=MKL -D FFT_SINGLE=no -D PKG_USER-CONP2=on -DCMAKE_INSTALL_PREFIX=$HOME/usr/lammps ../cmake`
 * `cmake --build .`
 * `cmake --install .`
+* `make install-python`
 * add lammps to the PATH environment variable (e.g. in `.bashrc`)
   * `export PATH=$HOME/usr/lammps/bin:$PATH`
   * `export LD_LIBRARY_PATH=$HOME/usr/lammps/lib:$LD_LIBRARY_PATH` or/and
