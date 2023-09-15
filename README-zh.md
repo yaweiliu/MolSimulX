@@ -93,7 +93,11 @@
   * 安装 [miniconda](https://docs.conda.io/en/latest/miniconda.html) (轻量级 conda 安装包) 或 [anaconda](https://www.anaconda.com/) (包含大量 python packages)
   * 通过 `conda` 安装 pyhton packages 
 
-    `conda install numpy pandas scipy matplotlib` # 数据分析包
+    `conda install numpy pandas scipy matplotlib` # 数据分析
+
+    `conda install -c plotly plotly` # 可视化
+
+    `conda install -c conda-forge seaborn bokeh` # 可视化
 
     `conda install nodejs` # 插件
     
@@ -101,7 +105,8 @@
 
     `conda install -c conda-forge freud fresnel` # MD轨迹分析和可视化
 
-    `pip install plato-draw` # 可视化
+    `conda install -c conda-forge pythreejs` # 可视化插件
+    `pip install plato-draw` # 粒子体系可视化
 
     `pip install wulffpack` # 晶体颗粒Wulff构造
 
